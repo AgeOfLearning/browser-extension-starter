@@ -1,0 +1,42 @@
+{
+  "verbose": true,
+  "persistent": false,
+  "plugins": {
+    "local": {
+      "browsers": [
+        "firefox",
+        "chrome",
+        "safari",
+        "canary"
+      ],
+      "browserOptions": {
+        "chrome": [
+          "headless"
+        ],
+        "canary": [
+          "headless"
+        ],
+        "firefox": [
+          "-headless"
+        ]
+      }
+    },
+    "istanbul": {
+      "dir": "./coverage",
+      "reporters": ["text-summary", "lcov"],
+      "include": "**/*.js",
+      "exclude": [
+        "**/node_modules",
+        "**/node_modules_sourced",
+        "**/documentation{,!(/tests/**)}",
+        "**/__config",
+        "**/cli",
+        "**/*-instance/**",
+        "**/*-loader/**",
+        "**/*-polyfill/**",
+        "**/*-plugin/**",
+        "**/router/examples"
+      ]
+    }
+  }
+}

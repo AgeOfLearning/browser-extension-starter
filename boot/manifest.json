@@ -1,0 +1,35 @@
+{
+  "name": "aofl-js devtools",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description":
+    "Chrome and Firefox DevTools extension for debugging aofl-js applications.",
+  "homepage_url": "http://www.ageoflearning.com",
+  "icons": {
+    "16": "assets/manifest/icon-16x16.png",
+    "48": "assets/manifest/icon-48x48.png",
+    "128": "assets/manifest/icon-128x128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": ["boot/background/index.min.js"]
+  },
+  "devtools_page": "boot/devtools/view.html",
+  "permissions": [
+    "contextMenus",
+    "cookies",
+    "history",
+    "notifications",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["boot/content_scripts/index.min.js"]
+    }
+  ],
+  "content_security_policy":
+    "default-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; object-src 'self'; connect-src ws://localhost:9090/"
+}
